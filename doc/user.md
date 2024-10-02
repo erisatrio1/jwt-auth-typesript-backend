@@ -30,7 +30,7 @@ Response Body (Failed) :
 
 ```json
 {
-  "errors" : "Username must not blank, ..."
+  "errors" : "'Password and confirm password dont match!"
 }
 ```
 
@@ -60,7 +60,29 @@ Response Body (Failed) :
 
 ```json
 {
-  "errors" : "Username or password wrong, ..."
+  "errors" : "Email or password is wrong"
+}
+```
+
+## Refresh Token
+
+Endpoint : GET /api/users/refresh
+
+
+Response Body (Success) :
+
+```json
+{
+    "success": true,
+    "access_token": "YOUR_ACCESS_TOKEN"
+}
+```
+
+Response Body (Failed) :
+
+```json
+{
+  "errors" : "Not allow access!"
 }
 ```
 
@@ -70,6 +92,8 @@ Endpoint : GET /api/users/current
 
 Request Header :
 - Bearer Token 
+
+Lifetime access token is 20 second, if expired please get refresh token
 
 Response Body (Success) :
 

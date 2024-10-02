@@ -41,12 +41,12 @@ export class UserService {
         });
 
         if (!user) {
-            throw new ResponseError(401, "Username or password is wrong");
+            throw new ResponseError(401, "Email or password is wrong");
         }
 
         const isPasswordValid = await bcrypt.compare(loginRequest.password, user.password);
         if (!isPasswordValid) {
-            throw new ResponseError(401, "Username or password is wrong");
+            throw new ResponseError(401, "Email or password is wrong");
         }
 
         const email = user.email;
@@ -83,7 +83,7 @@ export class UserService {
         });
 
         if (!user) {
-            throw new ResponseError(401, "Username or password is wrong");
+            throw new ResponseError(401, "Email or password is wrong");
         }
 
         return toUserResponse(user);
